@@ -29,10 +29,15 @@ const Lead = mongoose.model('Lead', leadSchema);
 
 // Step 4: Tjheez Nodemailer la yib3at l email
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 
